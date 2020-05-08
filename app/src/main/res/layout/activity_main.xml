@@ -22,8 +22,9 @@
         android:layout_margin="16dp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
-        android:src="@drawable/baseline_add_circle_24"
+        android:src="@drawable/ic_create_white_24dp"
         app:fabSize="normal"
+        app:backgroundTint="@color/colorPrimaryDark"
 
         />
 
