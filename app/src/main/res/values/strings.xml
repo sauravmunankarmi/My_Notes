@@ -2,4 +2,6 @@
     <string name="app_name">My Notes</string>
     <string name="test_date">JAN 12</string>
     <string name="Delete">Delete</string>
+    <string name="title">Title</string>
+    <string name="notes">Notes</string>
 </resources>
