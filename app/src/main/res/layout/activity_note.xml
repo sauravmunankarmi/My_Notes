@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".NoteActivity">
+
+    <EditText
+        android:id="@+id/edit_title"
+        android:hint="Title"
+        android:gravity="center_vertical"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:textAllCaps="true"
+        android:textStyle="bold"
+        tools:text="TITLE"
+        android:textSize="20sp"
+        android:textAlignment="gravity"
+        android:textColor="@color/cardText"
+        android:layout_alignParentTop="true"
+        android:padding="8dp"
+
+
+        />
+
+    <EditText
+        android:id="@+id/edit_desc"
+        android:hint="Notes"
+        android:gravity="top"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/edit_title"
+        android:paddingBottom="8dp"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
+        android:autofillHints="Notes"
+        android:background="@null"
+
+        />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab_done"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:src="@drawable/ic_create_white_24dp"
+        app:fabSize="normal"
+        app:backgroundTint="@color/colorPrimaryDark"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+
+        />
+
+
+</RelativeLayout>
+
+
