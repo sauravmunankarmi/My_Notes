@@ -4,14 +4,15 @@ import java.util.Date;
 
 public class Note {
 
-    private String mTitle;
-    private String mSubTitle;
-    private Date mDate;
+    private String mTitle ;
+    private String mSubTitle ;
+    private String mDate ;
 
-    public Note(String title,String subTitle){
+    public Note(String title,String subTitle,String date){
 
         mTitle = title;
         mSubTitle = subTitle;
+        mDate = date;
 
     }
 
@@ -23,7 +24,7 @@ public class Note {
         return mSubTitle;
     }
 
-    public Date getDate(){
+    public  String getDate(){
         return mDate;
     }
 
