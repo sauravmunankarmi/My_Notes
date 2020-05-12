@@ -1,6 +1,7 @@
 package com.example.mynotes.data;
 
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import com.example.mynotes.data.NoteContract.NoteEntry;
@@ -8,7 +9,7 @@ import com.example.mynotes.data.NoteContract.NoteEntry;
 public class NoteDBHelper extends SQLiteOpenHelper {
 
     private static final String DATABASE_NAME = "Notes.db";
-    private static final int DATABASE_VERSION = 1;
+    private static final int DATABASE_VERSION = 2;
 
     public NoteDBHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -30,5 +31,12 @@ public class NoteDBHelper extends SQLiteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 
+    }
+
+    public Cursor getTableData()
+    {
+        SQLiteDatabase database = this.getWritableDatabase();
+        Cursor res1 = database.rawQuery("select * from "+NoteEntry.TABLE_NAME,null);
+        return res1;
     }
 }
