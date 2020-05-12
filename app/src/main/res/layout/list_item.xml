@@ -17,7 +17,7 @@
     app:cardPreventCornerOverlap="true"
     app:cardUseCompatPadding="true"
     android:id="@+id/list_item">
-<!--    android:onClick="test_action"-->
+
 
 
 

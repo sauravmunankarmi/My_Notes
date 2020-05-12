@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.test);
+        setContentView(R.layout.activity_main);
 
         mDbHelper = new NoteDBHelper(this);
 
@@ -72,6 +72,8 @@ public class MainActivity extends AppCompatActivity {
         mAdapter = new NoteAdapter(notesList);
         mRecyclerView.setAdapter(mAdapter);
 
+
+
         mAdapter.setOnItemClickListener(
                 new NoteAdapter.OnItemClickListener() {
                     @Override
@@ -82,35 +84,6 @@ public class MainActivity extends AppCompatActivity {
                         startActivity(in);
                     }
                 });
-
-
-
-
-
-//        notesList.add(new Note("Title","Subtitle 1 \n subtitle 2","JAN 12",1));
-//        notesList.add(new Note("Title","Subtitle 1 \n subtitle 2","JAN 12",2));
-//        notesList.add(new Note("Title","Subtitle 1 \n subtitle 2","JAN 12",3));
-//        notesList.add(new Note("Title","Subtitle 1 \n subtitle 2","JAN 12",4));
-//        notesList.add(new Note("Title","Subtitle 1 \n subtitle 2","JAN 12",5));
-//        notesList.add(new Note("Title","Subtitle 1 \n subtitle 2","JAN 12",6));
-//        notesList.add(new Note("Title","Subtitle 1 \n subtitle 2","JAN 12",7));
-
-
-
-
-//        NoteAdapter adapter = new NoteAdapter(this, notesList);
-//        ListView listView =  findViewById(R.id.list);
-//        listView.setAdapter(adapter);
-//
-//        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//            @Override
-//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//                Note note = notesList.get(position);
-//                Toast.makeText(MainActivity.this,position + " ",Toast.LENGTH_SHORT).show();
-//            }
-//        });
-
-
 
 
 
@@ -126,11 +99,6 @@ public class MainActivity extends AppCompatActivity {
         });
 
         displayDatabaseInfo();
-
-
-
-
-
 
     }
 
@@ -166,24 +134,24 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
-        Toast.makeText(MainActivity.this,"All notes deleted.",Toast.LENGTH_SHORT).show();
 
+        mDbHelper = new NoteDBHelper(this);
+        mDbHelper.deleteAllNotes();
+        Toast.makeText(MainActivity.this,"All notes deleted.",Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(MainActivity.this,MainActivity.class);
+        startActivity(intent);
 
         return super.onOptionsItemSelected(item);
     }
 
-
-//    public void delete_button_action(View view) {
-//
-//        Toast.makeText(MainActivity.this,"Tapped del",Toast.LENGTH_SHORT).show();
-//
-//
-//    }
+    public void deleteNote(){
 
 
-//    public void test_action(View view) {
-//
-//        Toast.makeText(MainActivity.this,"Tapped Notes",Toast.LENGTH_SHORT).show();
-//
-//    }
+
+
+
+
+    }
+
+
 }

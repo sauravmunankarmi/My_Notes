@@ -52,6 +52,7 @@ public class NoteActivity extends AppCompatActivity {
         }
 
 
+
         FloatingActionButton fab = findViewById(R.id.fab_done);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -90,6 +91,8 @@ public class NoteActivity extends AppCompatActivity {
         }
         res.close();
     }
+
+
 
     private void insertNote() {
 

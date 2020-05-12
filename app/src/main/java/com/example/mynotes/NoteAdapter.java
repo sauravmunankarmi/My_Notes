@@ -32,6 +32,8 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteViewHolder
         void onItemClick(int position);
     }
 
+
+
     public void setOnItemClickListener(OnItemClickListener listener){
         mListener = listener;
     }

@@ -39,4 +39,17 @@ public class NoteDBHelper extends SQLiteOpenHelper {
         Cursor res1 = database.rawQuery("select * from "+NoteEntry.TABLE_NAME,null);
         return res1;
     }
+
+    public int deleteNote(int id){
+        SQLiteDatabase db = this.getWritableDatabase();
+        String idString = String.valueOf(id);
+
+        return db.delete(NoteEntry.TABLE_NAME,NoteEntry._ID + " = ?" , new String[]{idString});
+
+    }
+
+    public void deleteAllNotes(){
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.execSQL("delete from " + NoteEntry.TABLE_NAME );
+    }
 }
