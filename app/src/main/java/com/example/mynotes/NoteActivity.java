@@ -5,17 +5,14 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
-
 import com.example.mynotes.data.NoteContract.NoteEntry;
 import com.example.mynotes.data.NoteDBHelper;
-
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
@@ -31,19 +28,16 @@ public class NoteActivity extends AppCompatActivity {
     private static String Date;
     private static String Time;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_note);
 
         mDbHelper = new NoteDBHelper(this);
-
         isEdit = Note.getEdit();
 
         if(isEdit){
             getNoteFromDataBase();
-
             EditText title_edit_text = findViewById(R.id.edit_title);
             title_edit_text.setText(Title);
             EditText desc_edit_text = findViewById(R.id.edit_desc);
@@ -52,18 +46,13 @@ public class NoteActivity extends AppCompatActivity {
             Note.setEdit(false);
         }
 
-
-
         FloatingActionButton fab = findViewById(R.id.fab_done);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 if(isEdit){
-                    //updateNote();
-                    insertNote();
+                    updateNote();
                 }
-
                 else {
                     insertNote();
                 }
@@ -71,9 +60,6 @@ public class NoteActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
-
-
     }
 
     private void getNoteFromDataBase(){
@@ -108,7 +94,6 @@ public class NoteActivity extends AppCompatActivity {
     private void insertNote() {
 
         SQLiteDatabase db = mDbHelper.getWritableDatabase();
-
         EditText editText_title = (EditText) findViewById(R.id.edit_title);
         EditText editText_desc = (EditText) findViewById(R.id.edit_desc);
 
@@ -118,7 +103,6 @@ public class NoteActivity extends AppCompatActivity {
         String time = new SimpleDateFormat("K:mm a", Locale.getDefault()).format(new Date());
 
         if (!titleString.equals("") || !descString.equals("")) {
-
             //if both title and description of the note are empty...it wont insert in database
             ContentValues values = new ContentValues();
             values.put(NoteEntry.COLUMN_TITLE, titleString);
@@ -138,7 +122,11 @@ public class NoteActivity extends AppCompatActivity {
         }
     }
 
+    private void updateNote(){
 
+        insertNote();
+        mDbHelper.deleteNote(Note.getID());
 
+    }
 
 }
