@@ -119,8 +119,7 @@ public class NoteActivity extends AppCompatActivity {
 
         if (!titleString.equals("") || !descString.equals("")) {
 
-            //if both title and description are empty...it wont insert in database
-
+            //if both title and description of the note are empty...it wont insert in database
             ContentValues values = new ContentValues();
             values.put(NoteEntry.COLUMN_TITLE, titleString);
             values.put(NoteEntry.COLUMN_DESC, descString);
@@ -128,22 +127,15 @@ public class NoteActivity extends AppCompatActivity {
             values.put(NoteEntry.COLUMN_TIME, time);
 
             long newRowID = db.insert(NoteEntry.TABLE_NAME, null, values);
-
             Log.v("MainActivity", "new row id = " + newRowID);
 
             if(newRowID == -1){
                 Toast.makeText(NoteActivity.this,"Note insertion failed!",Toast.LENGTH_LONG).show();
             }
-
             else{
-
                 Toast.makeText(NoteActivity.this,"Note added!",Toast.LENGTH_SHORT).show();
             }
-
         }
-
-
-
     }
 
 
