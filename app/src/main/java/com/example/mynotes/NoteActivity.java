@@ -58,7 +58,15 @@ public class NoteActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                insertNote();
+
+                if(isEdit){
+                    //updateNote();
+                    insertNote();
+                }
+
+                else {
+                    insertNote();
+                }
                 Intent intent = new Intent(NoteActivity.this,MainActivity.class);
                 startActivity(intent);
             }

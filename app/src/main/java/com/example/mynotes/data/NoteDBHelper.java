@@ -41,11 +41,12 @@ public class NoteDBHelper extends SQLiteOpenHelper {
         return res1;
     }
 
-    public int deleteNote(int id){
+    public void deleteNote(int id){
         SQLiteDatabase db = this.getWritableDatabase();
-        String idString = String.valueOf(id);
+//        String idString = String.valueOf(id);
+//        return db.delete(NoteEntry.TABLE_NAME,NoteEntry._ID + " = ?" , new String[]{idString});
 
-        return db.delete(NoteEntry.TABLE_NAME,NoteEntry._ID + " = ?" , new String[]{idString});
+        db.execSQL("delete from " + NoteEntry.TABLE_NAME + " where " + NoteEntry._ID + " = " + id +";");
 
     }
 

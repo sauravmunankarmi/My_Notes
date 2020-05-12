@@ -30,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
     private NoteAdapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
 
+
     NoteDBHelper mDbHelper ;
     final ArrayList<Note> notesList = new ArrayList<>();
 
@@ -83,6 +84,19 @@ public class MainActivity extends AppCompatActivity {
                         notesList.get(position).setEdit(true);
                         Intent in = new Intent(MainActivity.this, NoteActivity.class);
                         startActivity(in);
+                    }
+
+                    @Override
+                    public void onDeleteClick(int position) {
+
+                        notesList.get(position).setID();
+                        int dbID = notesList.get(position).getID();
+
+                        mDbHelper.deleteNote(dbID);
+                        Toast.makeText(MainActivity.this,dbID + "Note deleted!",Toast.LENGTH_SHORT).show();
+                        Intent in = new Intent(MainActivity.this, MainActivity.class);
+                        startActivity(in);
+
                     }
                 });
 
@@ -145,14 +159,6 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void deleteNote(){
-
-
-
-
-
-
-    }
 
 
 }
