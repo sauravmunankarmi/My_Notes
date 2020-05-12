@@ -1,11 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    >
-
 <android.support.v7.widget.CardView
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -18,74 +11,113 @@
     app:cardUseCompatPadding="true"
     android:id="@+id/list_item">
 
-
-
-
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        >
+        android:orientation="horizontal">
 
-        <TextView
-            android:id="@+id/title_box"
-            android:layout_width="250dp"
-            android:layout_height="30dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="5dp"
-            android:layout_marginTop="5dp"
-            android:textStyle="bold"
-            android:textAllCaps="true"
-            tools:text="TITLE"
-            android:textSize="20sp"
-            android:textAlignment="gravity"
-            android:textColor="@color/cardText"
-            />
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:layout_weight="10"
+            android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/desc_box"
-            android:layout_width="250dp"
-            android:layout_height="70dp"
-            android:layout_below="@+id/title_box"
-            android:layout_marginStart="5dp"
-            android:layout_marginBottom="5dp"
-            tools:text="sub title"
-            android:textStyle="normal"
-            android:textSize="14sp"
-            android:textAlignment="viewStart"
-            android:textColor="@color/cardText"
-            />
+            <TextView
+                android:id="@+id/title_box"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="5dp"
+                android:textStyle="bold"
+                android:textAllCaps="true"
+                android:text="TITLE"
+                android:textSize="22sp"
+                android:textAlignment="gravity"
+                android:textColor="@color/cardText"
+                />
 
-        <TextView
-            android:id="@+id/date_box"
-            android:layout_width="130dp"
-            android:layout_height="50dp"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentTop="true"
-            android:text="@string/test_date"
-            android:textAlignment="viewEnd"
-            android:textAllCaps="true"
-            android:textSize="15sp"
-            android:layout_margin="5dp"
-            android:textColor="@color/cardText"
-            />
+            <TextView
+                android:id="@+id/desc_box"
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
+                android:layout_below="@+id/title_box"
+                android:layout_marginStart="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginBottom="5dp"
+                tools:text="sub title"
+                android:textStyle="normal"
+                android:textSize="14sp"
+                android:textAlignment="viewStart"
+                android:textColor="@color/cardText"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:layout_weight="4"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/date_box"
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:text="@string/test_date"
+                android:textStyle="bold"
+                android:textAlignment="gravity"
+                android:gravity="bottom"
+                android:textAllCaps="true"
+                android:textSize="25sp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginLeft="5dp"
+                android:textColor="@color/cardText"
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_gravity="bottom"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/time_box"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:text="00:00 PM"
+                    android:layout_gravity="top"
+                    android:textAllCaps="true"
+                    android:textSize="15sp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginEnd="0dp"
+                    android:layout_marginStart="5dp"
+                    android:textColor="@color/cardText"
+
+                    />
 
 
-        <ImageButton
-            android:id="@+id/delete_button"
-            android:src="@drawable/baseline_delete_black_24"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true"
-            android:layout_margin="5dp"
-            android:background="@color/cardBackground"
-            android:contentDescription="@string/Delete"
-            />
+                <ImageButton
+                    android:id="@+id/delete_button"
+                    android:src="@drawable/baseline_delete_black_24"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginLeft="5dp"
+                    android:background="@color/cardBackground"
+                    android:contentDescription="@string/Delete"
+                    />
 
-    </RelativeLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
 
 </android.support.v7.widget.CardView>
-
-</LinearLayout>
 

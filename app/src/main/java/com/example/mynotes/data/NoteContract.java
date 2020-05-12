@@ -16,6 +16,8 @@ public final class NoteContract {
         public final static String COLUMN_TITLE = "Title";
         public final static String COLUMN_DESC = "Description";
         public final static String COLUMN_DATE= "Date";
+        public final static String COLUMN_TIME= "Time";
+
 
 
     }

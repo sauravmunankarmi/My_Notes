@@ -14,11 +14,10 @@
         android:hint="@string/title"
         android:gravity="center_vertical"
         android:layout_width="match_parent"
-        android:layout_height="80dp"
+        android:layout_height="70dp"
         android:textAllCaps="true"
         android:textStyle="bold"
-        tools:text="TITLE"
-        android:textSize="20sp"
+        android:textSize="25sp"
         android:textAlignment="gravity"
         android:textColor="@color/cardText"
         android:layout_alignParentTop="true"
@@ -29,7 +28,7 @@
     <EditText
         android:id="@+id/edit_desc"
         android:hint="@string/notes"
-        android:gravity="top"
+        android:gravity="top|left"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/edit_title"
@@ -38,8 +37,8 @@
         android:paddingRight="8dp"
         android:autofillHints="Notes"
         android:background="@null"
-        android:inputType="textAutoComplete"
-        />
+        android:inputType="textMultiLine"
+        android:scrollbars="vertical"/>
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab_done"

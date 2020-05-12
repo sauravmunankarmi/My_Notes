@@ -9,7 +9,7 @@ import com.example.mynotes.data.NoteContract.NoteEntry;
 public class NoteDBHelper extends SQLiteOpenHelper {
 
     private static final String DATABASE_NAME = "Notes.db";
-    private static final int DATABASE_VERSION = 2;
+    private static final int DATABASE_VERSION = 3;
 
     public NoteDBHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -22,7 +22,8 @@ public class NoteDBHelper extends SQLiteOpenHelper {
                 + NoteEntry._ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
                 + NoteEntry.COLUMN_TITLE + " TEXT DEFAULT 'TITLE', "
                 + NoteEntry.COLUMN_DESC + " TEXT DEFAULT 'EMPTY',  "
-                + NoteEntry.COLUMN_DATE + " TEXT );";
+                + NoteEntry.COLUMN_DATE + " TEXT, "
+                + NoteEntry.COLUMN_TIME + " TEXT );";
 
         db.execSQL(SQL_CREATE_NOTE_TABLE);
 

@@ -54,10 +54,11 @@ public class MainActivity extends AppCompatActivity {
                 String title = res.getString(1);
                 String desc = res.getString(2);
                 String date = res.getString(3);
+                String time = res.getString(4);
                 int id = res.getInt(0);
 
 
-                notesList.add(new Note(title,desc,date,id));
+                notesList.add(new Note(title,desc,date,time,id));
 
             } while (res.moveToPrevious());
         }

@@ -29,6 +29,7 @@ public class NoteActivity extends AppCompatActivity {
     private static String Title;
     private static String Desc;
     private static String Date;
+    private static String Time;
 
 
     @Override
@@ -81,11 +82,13 @@ public class NoteActivity extends AppCompatActivity {
                 String title = res.getString(1);
                 String desc = res.getString(2);
                 String date = res.getString(3);
+                String time = res.getString(4);
 
                 if ( ID == dbID ) {
                     Title = title;
                     Desc = desc;
                     Date = date;
+                    Time = time;
                 }
             } while (res.moveToNext());
         }
@@ -103,7 +106,8 @@ public class NoteActivity extends AppCompatActivity {
 
         String titleString = editText_title.getText().toString().trim();
         String descString = editText_desc.getText().toString().trim();
-        String date = new SimpleDateFormat("MM-dd", Locale.getDefault()).format(new Date());
+        String date = new SimpleDateFormat("MMM-dd", Locale.getDefault()).format(new Date());
+        String time = new SimpleDateFormat("K:mm a", Locale.getDefault()).format(new Date());
 
         if (!titleString.equals("") || !descString.equals("")) {
 
@@ -113,6 +117,7 @@ public class NoteActivity extends AppCompatActivity {
             values.put(NoteEntry.COLUMN_TITLE, titleString);
             values.put(NoteEntry.COLUMN_DESC, descString);
             values.put(NoteEntry.COLUMN_DATE, date);
+            values.put(NoteEntry.COLUMN_TIME, time);
 
             long newRowID = db.insert(NoteEntry.TABLE_NAME, null, values);
 

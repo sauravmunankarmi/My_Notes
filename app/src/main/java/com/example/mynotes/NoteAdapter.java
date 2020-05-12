@@ -43,6 +43,7 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteViewHolder
         public TextView title_text_view;
         public TextView desc_text_view;
         public TextView date_text_view;
+        public TextView time_text_view;
         public ImageButton delete_button;
 
 
@@ -51,7 +52,9 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteViewHolder
             title_text_view = itemView.findViewById(R.id.title_box);
             desc_text_view = itemView.findViewById(R.id.desc_box);
             date_text_view = itemView.findViewById(R.id.date_box);
+            time_text_view = itemView.findViewById(R.id.time_box);
             delete_button = itemView.findViewById(R.id.delete_button);
+
 
             itemView.setOnClickListener(new View.OnClickListener(){
                 @Override
@@ -86,6 +89,7 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteViewHolder
         noteViewHolder.title_text_view.setText(local_note.getTitle());
         noteViewHolder.desc_text_view.setText(local_note.getSubTitle());
         noteViewHolder.date_text_view.setText(local_note.getDate());
+        noteViewHolder.time_text_view.setText(local_note.getTime());
 
 
     }

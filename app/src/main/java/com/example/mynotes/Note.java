@@ -7,16 +7,18 @@ public class Note {
     private String mTitle ;
     private String mSubTitle ;
     private String mDate ;
+    private String mTime;
     private int mID;
     public static int exportID;
     public static boolean edit;
 
 
-    public Note(String title,String subTitle,String date,int id){
+    public Note(String title,String subTitle,String date,String time,int id){
 
         mTitle = title;
         mSubTitle = subTitle;
         mDate = date;
+        mTime = time;
         mID = id;
 
     }
@@ -51,6 +53,8 @@ public class Note {
     public String getDate(){
         return mDate;
     }
+
+    public String getTime() { return mTime; }
 
 //    public int getID() { return mID; }
 
