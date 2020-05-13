@@ -9,9 +9,6 @@
         android:roundIcon="@mipmap/ic_launcher_note_circle"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity
-            android:name=".NoteActivity"
-            android:label="Edit Note"></activity>
 
         <activity android:name=".MainActivity">
             <intent-filter>
@@ -20,6 +17,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".NoteActivity"
+            android:label="Edit Note"
+            android:parentActivityName=".MainActivity"></activity>
 
     </application>
 
