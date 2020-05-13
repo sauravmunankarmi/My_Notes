@@ -9,6 +9,7 @@
     android:orientation="vertical"
     tools:context=".NoteActivity">
 
+
     <EditText
         android:id="@+id/edit_title"
         android:hint="@string/title"
@@ -30,7 +31,7 @@
         android:hint="@string/notes"
         android:gravity="top|left"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_below="@+id/edit_title"
         android:paddingBottom="8dp"
         android:paddingLeft="8dp"
@@ -40,26 +41,34 @@
         android:inputType="textMultiLine"
         android:scrollbars="vertical"/>
 
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fab_done"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
-        android:divider="@android:color/transparent"
-        android:dividerHeight="10.0dp"
+    <android.support.design.widget.CoordinatorLayout
+        android:id="@+id/note_coordinatorLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        >
 
-        android:elevation="1dp"
-        android:src="@drawable/ic_done_white_24dp"
-        app:backgroundTint="@color/colorPrimaryDark"
-        app:fabSize="normal"
-        app:rippleColor="@color/gray"
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fab_done"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:divider="@android:color/transparent"
+            android:dividerHeight="10.0dp"
+            android:overScrollMode="ifContentScrolls"
+            app:pressedTranslationZ="2dp"
+            app:useCompatPadding="true"
+            android:elevation="1dp"
+            android:src="@drawable/ic_done_white_24dp"
+            app:backgroundTint="@color/colorPrimaryDark"
+            app:fabSize="normal"
+            app:rippleColor="@color/gray" />
 
-        />
+    </android.support.design.widget.CoordinatorLayout>
 
 
 </RelativeLayout>

@@ -22,18 +22,14 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteViewHolder
     private ArrayList<Note> local_note_list;
     private OnItemClickListener mListener;
 
-
     public NoteAdapter(ArrayList<Note> notes) {
         local_note_list = notes;
-
     }
 
     public interface OnItemClickListener {
         void onItemClick(int position);
         void onDeleteClick(int position);
     }
-
-
 
     public void setOnItemClickListener(OnItemClickListener listener){
         mListener = listener;
@@ -47,7 +43,6 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteViewHolder
         public TextView time_text_view;
         public ImageButton delete_button;
 
-
         public NoteViewHolder(@NonNull View itemView, final OnItemClickListener listener) {
             super(itemView);
             title_text_view = itemView.findViewById(R.id.title_box);
@@ -55,7 +50,6 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteViewHolder
             date_text_view = itemView.findViewById(R.id.date_box);
             time_text_view = itemView.findViewById(R.id.time_box);
             delete_button = itemView.findViewById(R.id.delete_button);
-
 
             itemView.setOnClickListener(new View.OnClickListener(){
                 @Override
@@ -67,7 +61,6 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteViewHolder
                         }
                     }
                 }
-
             });
 
             delete_button.setOnClickListener(new View.OnClickListener() {
@@ -91,7 +84,6 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteViewHolder
         View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.list_item,viewGroup, false);
         NoteViewHolder noteViewHolder = new NoteViewHolder(view,mListener);
         return noteViewHolder;
-
     }
 
     @Override
@@ -103,17 +95,12 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteViewHolder
         noteViewHolder.desc_text_view.setText(local_note.getSubTitle());
         noteViewHolder.date_text_view.setText(local_note.getDate());
         noteViewHolder.time_text_view.setText(local_note.getTime());
-
-
     }
 
     @Override
     public int getItemCount() {
         return local_note_list.size();
     }
-
-
-
 
 
 }

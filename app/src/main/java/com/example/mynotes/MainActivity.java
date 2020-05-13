@@ -4,6 +4,7 @@ import android.content.ContentValues;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.os.Handler;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -25,7 +26,9 @@ public class MainActivity extends AppCompatActivity {
     private NoteAdapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
     public static boolean boolDelete;
+    public static boolean flagAllDelete;
     public static Note undoNote;
+    public static boolean doubleBackToExitPressedOnce = false;
 
     NoteDBHelper mDbHelper ;
     final ArrayList<Note> notesList = new ArrayList<>();
@@ -35,11 +38,16 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+//        if(flagAllDelete){
+//            Toast.makeText(MainActivity.this,"All notes deleted",Toast.LENGTH_LONG).show();
+//            flagAllDelete = false;
+//        }
+
         mDbHelper = new NoteDBHelper(this);
         Cursor res = mDbHelper.getTableData();
         if(res.getCount()==0)
         {
-            Snackbar snackbar = Snackbar.make(findViewById(R.id.coordinatorLayout),"Start adding notes!",Snackbar.LENGTH_LONG);
+            Snackbar snackbar = Snackbar.make(findViewById(R.id.coordinatorLayout),"Start adding notes!",Snackbar.LENGTH_INDEFINITE);
             snackbar.show();
         }
         else {
@@ -55,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
         }
         res.close();
 
-        mRecyclerView = (RecyclerView) findViewById(R.id.recycler_view);
+        mRecyclerView = findViewById(R.id.recycler_view);
         mRecyclerView.setHasFixedSize(true);
 
         mLayoutManager = new LinearLayoutManager(this);
@@ -95,7 +103,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         if(boolDelete){
-            Snackbar.make(fab,"Deleted 1 ",Snackbar.LENGTH_LONG).setAction("UNDO", new View.OnClickListener() {
+            Snackbar.make(fab,"Note deleted! ",Snackbar.LENGTH_LONG).setAction("UNDO", new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     insertUndoNote(undoNote);
@@ -136,15 +144,13 @@ public class MainActivity extends AppCompatActivity {
             long newRowID = db.insert(NoteEntry.TABLE_NAME, null, values);
             Log.v("MainActivity", "new row id = " + newRowID);
             if(newRowID == -1){
-                Toast.makeText(MainActivity.this,"Undo failed!",Toast.LENGTH_LONG).show();
+                Toast.makeText(MainActivity.this,"Undo failed!",Toast.LENGTH_SHORT).show();
             }
             else{
                 Toast.makeText(MainActivity.this,"Note restored!",Toast.LENGTH_SHORT).show();
             }
         }
-
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -155,10 +161,36 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         mDbHelper = new NoteDBHelper(this);
         mDbHelper.deleteAllNotes();
-        Toast.makeText(MainActivity.this,"All notes deleted.",Toast.LENGTH_SHORT).show();
+        flagAllDelete = true;
         Intent intent = new Intent(MainActivity.this,MainActivity.class);
         startActivity(intent);
         return super.onOptionsItemSelected(item);
     }
+
+    @Override
+    public void onBackPressed() {
+
+
+        if (doubleBackToExitPressedOnce) {
+            moveTaskToBack(true);
+            android.os.Process.killProcess(android.os.Process.myPid());
+            System.exit(1);
+            return;
+        }
+
+        this.doubleBackToExitPressedOnce = true;
+        Toast.makeText(this, "Please click BACK again to exit", Toast.LENGTH_SHORT).show();
+
+        new Handler().postDelayed(new Runnable() {
+
+            @Override
+            public void run() {
+                doubleBackToExitPressedOnce=false;
+            }
+        }, 2000);
+    }
+
+
+
 
 }

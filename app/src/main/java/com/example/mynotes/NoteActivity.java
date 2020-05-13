@@ -4,6 +4,7 @@ import android.content.ContentValues;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.os.Handler;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -25,8 +26,6 @@ public class NoteActivity extends AppCompatActivity {
 
     private static String Title;
     private static String Desc;
-    private static String Date;
-    private static String Time;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,27 +74,21 @@ public class NoteActivity extends AppCompatActivity {
                 int ID = res.getInt(0);
                 String title = res.getString(1);
                 String desc = res.getString(2);
-                String date = res.getString(3);
-                String time = res.getString(4);
 
                 if ( ID == dbID ) {
                     Title = title;
                     Desc = desc;
-                    Date = date;
-                    Time = time;
                 }
             } while (res.moveToNext());
         }
         res.close();
     }
 
-
-
     private void insertNote() {
 
         SQLiteDatabase db = mDbHelper.getWritableDatabase();
-        EditText editText_title = (EditText) findViewById(R.id.edit_title);
-        EditText editText_desc = (EditText) findViewById(R.id.edit_desc);
+        EditText editText_title = findViewById(R.id.edit_title);
+        EditText editText_desc = findViewById(R.id.edit_desc);
 
         String titleString = editText_title.getText().toString().trim();
         String descString = editText_desc.getText().toString().trim();
@@ -123,10 +116,17 @@ public class NoteActivity extends AppCompatActivity {
     }
 
     private void updateNote(){
-
         insertNote();
         mDbHelper.deleteNote(Note.getID());
+    }
 
+
+
+    @Override
+    public void onBackPressed() {
+
+        Intent intent = new Intent(NoteActivity.this,MainActivity.class);
+        startActivity(intent);
     }
 
 }
