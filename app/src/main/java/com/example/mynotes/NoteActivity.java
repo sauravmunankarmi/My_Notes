@@ -116,18 +116,18 @@ public class NoteActivity extends AppCompatActivity {
         }
     }
 
-    private void updateNote(){
-        insertNote();
-        mDbHelper.deleteNote(Note.getID());
-    }
-
-
-
     @Override
     public void onBackPressed() {
 
         Intent intent = new Intent(NoteActivity.this,MainActivity.class);
         startActivity(intent);
     }
+
+    private void updateNote(){
+        insertNote();
+        mDbHelper.deleteNote(Note.getID());
+    }
+
+
 
 }

@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
     public static boolean boolDelete;
     public static boolean flagAllDelete;
     public static Note undoNote;
-    public static boolean doubleBackToExitPressedOnce = false;
+    public boolean doubleBackToExitPressedOnce = false;
 
     NoteDBHelper mDbHelper ;
     final ArrayList<Note> notesList = new ArrayList<>();
@@ -170,7 +170,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
 
-
         if (doubleBackToExitPressedOnce) {
             moveTaskToBack(true);
             android.os.Process.killProcess(android.os.Process.myPid());
@@ -179,7 +178,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         this.doubleBackToExitPressedOnce = true;
-        Toast.makeText(this, "Please click BACK again to exit", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Press back again to leave", Toast.LENGTH_SHORT).show();
 
         new Handler().postDelayed(new Runnable() {
 
@@ -189,8 +188,5 @@ public class MainActivity extends AppCompatActivity {
             }
         }, 2000);
     }
-
-
-
 
 }

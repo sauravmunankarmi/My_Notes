@@ -21,7 +21,7 @@
         <activity
             android:name=".NoteActivity"
             android:label="Edit Note"
-            android:parentActivityName=".MainActivity"></activity>
+            android:parentActivityName=".MainActivity" />
 
     </application>
 
