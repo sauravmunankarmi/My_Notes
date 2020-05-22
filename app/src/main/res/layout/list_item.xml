@@ -27,17 +27,16 @@
                 android:id="@+id/title_box"
                 android:layout_width="wrap_content"
                 android:layout_height="30dp"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true"
                 android:layout_marginStart="5dp"
-                android:layout_marginRight="5dp"
+                android:layout_marginEnd="5dp"
                 android:layout_marginTop="5dp"
                 android:textStyle="bold"
                 android:textAllCaps="true"
                 android:text="TITLE"
+                android:fontFamily="sans-serif-medium"
                 android:textSize="22sp"
                 android:textAlignment="gravity"
-                android:textColor="@color/cardText"
+                android:textColor="@color/cardTitleList"
                 />
 
             <TextView
@@ -49,10 +48,11 @@
                 android:layout_marginRight="5dp"
                 android:layout_marginBottom="5dp"
                 tools:text="sub title"
+                android:fontFamily="sans-serif-medium"
                 android:textStyle="normal"
                 android:textSize="14sp"
                 android:textAlignment="viewStart"
-                android:textColor="@color/cardText"
+                android:textColor="@color/cardSubTitleList"
                 />
 
         </LinearLayout>
@@ -76,7 +76,7 @@
                 android:layout_marginTop="5dp"
                 android:layout_marginRight="5dp"
                 android:layout_marginLeft="5dp"
-                android:textColor="@color/cardText"
+                android:textColor="@color/cardDateTimeList"
                 />
 
             <LinearLayout
@@ -89,17 +89,15 @@
                     android:id="@+id/time_box"
                     android:layout_width="wrap_content"
                     android:layout_height="30dp"
-                    android:text="00:00 PM"
+                    tools:text="00:00 PM"
                     android:layout_gravity="top"
                     android:textAllCaps="true"
                     android:textSize="15sp"
                     android:layout_marginBottom="5dp"
                     android:layout_marginEnd="0dp"
                     android:layout_marginStart="5dp"
-                    android:textColor="@color/cardText"
-
+                    android:textColor="@color/cardDateTimeList"
                     />
-
 
                 <ImageButton
                     android:id="@+id/delete_button"

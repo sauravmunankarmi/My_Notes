@@ -6,5 +6,8 @@
     <color name="cardBackground">#FFFFFF</color>
     <color name="listBackground">#FFFFFF</color>
     <color name="cardText">#000000</color>
+    <color name="cardTitleList">#2B3D4D</color>
+    <color name="cardSubTitleList">#B4BAC0</color>
+    <color name="cardDateTimeList">#B4BAC0</color>
     <color name="gray">#8D8D8D</color>
 </resources>
