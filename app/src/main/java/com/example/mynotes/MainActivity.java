@@ -43,6 +43,8 @@ public class MainActivity extends AppCompatActivity {
 //            flagAllDelete = false;
 //        }
 
+        //test branch?
+
         mDbHelper = new NoteDBHelper(this);
         Cursor res = mDbHelper.getTableData();
         if(res.getCount()==0)
