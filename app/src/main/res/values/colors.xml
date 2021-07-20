@@ -10,4 +10,5 @@
     <color name="cardSubTitleList">#B4BAC0</color>
     <color name="cardDateTimeList">#B4BAC0</color>
     <color name="gray">#8D8D8D</color>
+    <color name="textGrey">#41495B</color>
 </resources>

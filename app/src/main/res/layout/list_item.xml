@@ -35,10 +35,10 @@
                 android:textAllCaps="true"
                 android:text="TITLE"
                 android:ellipsize="end"
-                android:fontFamily="sans-serif-medium"
+                android:fontFamily="@font/arimo_bold"
                 android:textSize="22sp"
                 android:textAlignment="gravity"
-                android:textColor="@color/cardTitleList"
+                android:textColor="@color/textGrey"
                 />
 
             <TextView
@@ -50,11 +50,11 @@
                 android:layout_marginEnd="5dp"
                 android:paddingBottom="5dp"
                 tools:text="sub title"
-                android:fontFamily="sans-serif-medium"
+                android:fontFamily="@font/arimo"
                 android:textStyle="normal"
                 android:textSize="14sp"
                 android:textAlignment="viewStart"
-                android:textColor="@color/cardSubTitleList"
+                android:textColor="@color/textGrey"
                 />
 
         </LinearLayout>
